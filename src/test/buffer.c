@@ -1,4 +1,4 @@
-#include "buffer.h"
+#include "test/buffer.h"
 #include "warble/buffer.h"
 
 #include <string.h>

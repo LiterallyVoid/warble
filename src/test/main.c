@@ -1,9 +1,9 @@
 #include "warble/test.h"
 
-#include "arraylist.h"
-#include "buffer.h"
-#include "hashmap.h"
-#include "slice.h"
+#include "test/arraylist.h"
+#include "test/buffer.h"
+#include "test/hashmap.h"
+#include "test/slice.h"
 
 int main(int argc, char **argv) {
 	TestContext ctx;

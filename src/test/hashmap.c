@@ -1,4 +1,4 @@
-#include "hashmap.h"
+#include "test/hashmap.h"
 #include "warble/hashmap.h"
 
 #include <stdlib.h>

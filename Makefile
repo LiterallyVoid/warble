@@ -24,7 +24,7 @@ CFLAGS = \
 	-DUSERVE_VERSION=\"$(VERSION)\" \
 	-D_POSIX_C_SOURCE=200112L
 
-INCLUDES = -Iinclude/
+INCLUDES = -Isrc/ -Iinclude/
 
 LDFLAGS =
 

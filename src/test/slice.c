@@ -1,4 +1,4 @@
-#include "slice.h"
+#include "test/slice.h"
 #include "warble/slice.h"
 
 void test_slice(TestContext *ctx) {
