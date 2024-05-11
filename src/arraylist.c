@@ -22,10 +22,14 @@ void arraylist_deinit(ArrayList *self) {
 	set_undefined(self, sizeof(*self));
 }
 
+static void *arraylist_get_unchecked(ArrayList *self, size_t index) {
+	return (char*) self->items + self->item_size * index;
+}
+
 void *arraylist_get(ArrayList *self, size_t index) {
 	assert(index >= 0 && index < self->len);
 
-	return self->item_size * index + (char*) self->items;
+	return arraylist_get_unchecked(self, index);
 }
 
 Error arraylist_reserve_total(ArrayList *self, size_t total) {
@@ -55,20 +59,67 @@ Error arraylist_reserve_additional(ArrayList *self, size_t additional) {
 }
 
 Error arraylist_append(ArrayList *self, void *item) {
-	Error err;
-
-	err = arraylist_reserve_additional(self, 1);
-	if (err != ERR_SUCCESS) return err;
-
-	arraylist_append_assume_capacity(self, item);
-	return ERR_SUCCESS;
+	return arraylist_splice(self, self->len, 0, item, 1);
 }
 
 void arraylist_append_assume_capacity(ArrayList *self, void *item) {
-	assert(self->len + 1 <= self->cap);
+	arraylist_splice_assume_capacity(self, self->len, 0, item, 1);
+}
 
-	size_t index = self->len;
-	self->len += 1;
-	
-	memcpy(arraylist_get(self, index), item, self->item_size);
+Error arraylist_splice(
+	ArrayList *self,
+	size_t index, size_t count,
+	void *new_items,
+	size_t new_items_count
+) {
+	if (new_items_count > count) {
+		size_t additional = new_items_count - count;
+
+		// Make sure there's no overflow.
+		assert(self->len + additional >= self->len);
+
+		Error err = arraylist_reserve_additional(self, additional);
+		if (err != ERR_SUCCESS) return err;
+	}
+
+	arraylist_splice_assume_capacity(self, index, count, new_items, new_items_count);
+
+	return ERR_SUCCESS;
+}
+
+void arraylist_splice_assume_capacity(
+	ArrayList *self,
+	size_t index, size_t count,
+	void *new_items,
+	size_t new_items_count
+) {
+	assert(index <= self->len);
+
+	// Make sure there's no overflow on `index + count`.
+	assert(index + count <= self->len);
+
+	if (new_items_count > count) {
+		size_t additional = new_items_count - count;
+
+		// Make sure there's no overflow...
+		assert(self->len + additional >= self->len);
+
+		// ...and we have the capacity.
+		assert(self->len + additional <= self->cap);
+	}
+
+	memmove(
+		arraylist_get_unchecked(self, index + count),
+		arraylist_get_unchecked(self, index + new_items_count),
+		self->item_size * (self->len - index - count)
+	);
+
+	memcpy(
+		arraylist_get_unchecked(self, index),
+		new_items,
+		self->item_size * new_items_count
+	);
+
+	self->len -= count;
+	self->len += new_items_count;
 }

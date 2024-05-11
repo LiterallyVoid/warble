@@ -39,3 +39,24 @@ Error arraylist_append(ArrayList *self, void *item);
 // Copy `item` and append it to `self`.
 // This function will panic if `self` doesn't have the capacity to hold `item`.
 void arraylist_append_assume_capacity(ArrayList *self, void *item);
+
+// Replace `count` items starting from `index` with `new_items[0..new_items_count]`.
+// This will shift the rest of the array forwards or backwards.
+Error arraylist_splice(
+	ArrayList *self,
+	size_t index, size_t count,
+	void *new_items,
+	size_t new_items_count
+);
+
+// Replace `count` items starting from `index` with `new_items[0..new_items_count]`.
+// This will shift the rest of the array forwards or backwards.
+//
+// If this arraylist doesn't have the capacity for `new_items_count - count`,
+// this function will panic.
+void arraylist_splice_assume_capacity(
+	ArrayList *self,
+	size_t index, size_t count,
+	void *new_items,
+	size_t new_items_count
+);
