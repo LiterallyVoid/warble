@@ -1,5 +1,5 @@
-#include "buffer.h"
-#include "util.h"
+#include "warble/buffer.h"
+#include "warble/util.h"
 
 #include <assert.h>
 #include <stdarg.h>

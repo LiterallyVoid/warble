@@ -1,8 +1,8 @@
-#include "hashmap.h"
+#include "warble/hashmap.h"
 
-#include "hash.h"
-#include "error.h"
-#include "util.h"
+#include "warble/error.h"
+#include "warble/hash.h"
+#include "warble/util.h"
 
 #include <assert.h>
 #include <stdint.h>

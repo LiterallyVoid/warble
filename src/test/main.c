@@ -1,3 +1,5 @@
+#include "warble/test.h"
+
 #include "arraylist.h"
 #include "buffer.h"
 #include "hashmap.h"

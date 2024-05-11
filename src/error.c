@@ -1,4 +1,4 @@
-#include "error.h"
+#include "warble/error.h"
 
 const char *error_to_string(Error self) {
 	switch (self) {

@@ -1,6 +1,6 @@
 #include "arraylist.h"
 
-#include "../arraylist.h"
+#include "warble/arraylist.h"
 
 typedef struct Item {
 	int value;

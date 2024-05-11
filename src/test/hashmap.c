@@ -1,5 +1,5 @@
 #include "hashmap.h"
-#include "../hashmap.h"
+#include "warble/hashmap.h"
 
 #include <stdlib.h>
 

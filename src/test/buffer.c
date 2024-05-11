@@ -1,5 +1,5 @@
 #include "buffer.h"
-#include "../buffer.h"
+#include "warble/buffer.h"
 
 #include <string.h>
 

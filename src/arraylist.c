@@ -1,6 +1,6 @@
-#include "arraylist.h"
+#include "warble/arraylist.h"
 
-#include "util.h"
+#include "warble/util.h"
 
 #include <assert.h>
 #include <stdlib.h>

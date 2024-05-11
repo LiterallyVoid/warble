@@ -1,5 +1,5 @@
 #pragma once
 
-#include "../test.h"
+#include "warble/test.h"
 
 void test_buffer(TestContext *ctx);

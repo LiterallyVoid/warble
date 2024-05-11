@@ -24,6 +24,8 @@ CFLAGS = \
 	-DUSERVE_VERSION=\"$(VERSION)\" \
 	-D_POSIX_C_SOURCE=200112L
 
+INCLUDES = -Iinclude/
+
 LDFLAGS =
 
 WARNINGS = -Wall -Wextra -Wmissing-prototypes -Wvla

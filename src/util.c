@@ -1,13 +1,9 @@
-#include "util.h"
+#include "warble/util.h"
 
 #include <assert.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
-
-#include <netinet/in.h>
-#include <sys/socket.h>
-#include <sys/types.h>
 
 #include <limits.h>
 #include <unistd.h>

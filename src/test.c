@@ -1,5 +1,5 @@
-#include "test.h"
-#include "util.h"
+#include "warble/test.h"
+#include "warble/util.h"
 
 #include <stdarg.h>
 #include <stdio.h>
