@@ -265,8 +265,6 @@ Error hashmap_put(HashMap *self, Slice key, HashMapEntry *out_entry) {
 	return ERR_SUCCESS;
 }
 
-// To iterate over a hashmap, create a zero-initialized HashMapIterator and call
-// `hashmap_next` until it returns an entry with `occupied` set to `false`.
 HashMapEntry hashmap_next(HashMap *self, HashMapIterator *it) {
 	while (true) {
 		// There aren't any more items.
