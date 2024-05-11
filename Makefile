@@ -13,6 +13,7 @@ OBJECTS = \
 
 OBJECTS += \
 	src/test/main.o	\
+	src/test/hash.o	\
 	src/test/buffer.o	\
 	src/test/slice.o	\
 	src/test/arraylist.o	\
