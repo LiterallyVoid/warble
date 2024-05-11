@@ -1,7 +1,7 @@
 #pragma once
 
-#include "error.h"
-#include "slice.h"
+#include "warble/error.h"
+#include "warble/slice.h"
 
 #include <stdint.h>
 #include <sys/types.h>

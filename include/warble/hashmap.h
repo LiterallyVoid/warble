@@ -1,7 +1,7 @@
 #pragma once
 
-#include "error.h"
-#include "slice.h"
+#include "warble/error.h"
+#include "warble/slice.h"
 
 #define HASHMAP_HASH_SENTINEL_EMPTY 0
 #define HASHMAP_HASH_SENTINEL_TOMBSTONE 1

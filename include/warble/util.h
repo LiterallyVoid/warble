@@ -1,11 +1,7 @@
 #pragma once
 
-#include "buffer.h"
-#include "error.h"
-
-#include <netinet/in.h>
-#include <stdio.h>
-#include <sys/types.h>
+#include "warble/slice.h"
+#include "warble/error.h"
 
 // If the next power of two is unrepresentable, this function will panic.
 size_t next_power_of_two(size_t num);
