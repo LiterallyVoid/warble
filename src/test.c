@@ -9,6 +9,9 @@ void test_context_init(TestContext *ctx) {
 }
 
 bool test_context_report(TestContext *ctx) {
+	// End the current test.
+	test_end(ctx);
+
 	printf(
 		"%d/%d tests passed\n",
 		ctx->total_tests_passed,
